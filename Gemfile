@@ -127,9 +127,11 @@ gem 'prototype_legacy_helper', '0.0.0', git: 'https://github.com/rails/prototype
 # small wrapper around the command line
 gem 'cocaine'
 
-# required by Procfile, for deployment on heroku or packaging with packager.io.
-# also, better than thin since we can control worker concurrency.
-gem 'unicorn'
+group :development, :production do
+  # required by Procfile, for deployment on heroku or packaging with packager.io.
+  # also, better than thin since we can control worker concurrency.
+  gem 'unicorn'
+end
 
 gem 'nokogiri', '~> 1.6.7'
 
