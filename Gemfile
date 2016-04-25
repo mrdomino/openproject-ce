@@ -90,11 +90,6 @@ gem 'daemons'
 # (see https://community.openproject.org/work_packages/3029)
 gem 'rack-protection', git: 'https://github.com/finnlabs/rack-protection.git', ref: '5a7d1bd'
 
-# Rack::Attack is a rack middleware to protect your web app from bad clients.
-# It allows whitelisting, blacklisting, throttling, and tracking based on arbitrary properties of the request.
-# https://github.com/kickstarter/rack-attack
-gem 'rack-attack'
-
 gem "syck", '~> 1.0.5', require: false
 gem 'gon', '~> 4.0'
 
@@ -105,6 +100,11 @@ gem 'airbrake', '~> 4.1.0', require: false
 gem 'transactional_lock', git: 'https://github.com/finnlabs/transactional_lock.git', branch: 'master'
 
 group :production do
+  # Rack::Attack is a rack middleware to protect your web app from bad clients.
+  # It allows whitelisting, blacklisting, throttling, and tracking based on arbitrary properties of the request.
+  # https://github.com/kickstarter/rack-attack
+  gem 'rack-attack'
+
   # we use dalli as standard memcache client
   # requires memcached 1.4+
   # see https://github.clientom/mperham/dalli

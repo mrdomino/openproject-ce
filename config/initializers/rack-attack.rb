@@ -26,7 +26,7 @@
 # See doc/COPYRIGHT.rdoc for more details.
 #++
 
-if OpenProject::Configuration.blacklisted_routes.any?
+if Rails.env.production? and OpenProject::Configuration.blacklisted_routes.any?
   # Block logins from a bad user agent
   Rack::Attack.blacklist('block forbidden routes') do |req|
     regex = OpenProject::Configuration.blacklisted_routes.map! { |str| Regexp.new(str) }

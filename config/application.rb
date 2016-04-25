@@ -88,7 +88,9 @@ module OpenProject
                              env['PATH_INFO'] =~ /\/api\/v3/
                            }
 
-    config.middleware.use Rack::Attack
+    if Rails.env.production?
+      config.middleware.use Rack::Attack
+    end
 
     ##
     # Support XML requests as params for APIv2
