@@ -9,13 +9,6 @@ gem "pdf-inspector", "~>1.0.0", group: [:development, :test]
 # DO NOT CHANGE THE ORDER OF PLUGINS
 #
 group :opf_plugins do
-  gem "openproject-global_roles", path: "vendored-plugins/openproject-global_roles"
-
-  gem "openproject-auth_plugins", path: "vendored-plugins/openproject-auth_plugins"
-  gem 'omniauth-openid_connect-providers',  git: 'https://github.com/finnlabs/omniauth-openid_connect-providers.git', branch: 'dev'
-  gem 'omniauth-openid-connect',            git: 'https://github.com/finnlabs/omniauth-openid-connect.git',           branch: 'dev'
-  gem "openproject-openid_connect", path: "vendored-plugins/openproject-openid_connect"
-
   gem "openproject-documents", path: "vendored-plugins/openproject-documents"
 
   gem "openproject-help_link", path: "vendored-plugins/openproject-help_link"
@@ -33,7 +26,6 @@ group :opf_plugins do
   gem "openproject-backlogs", path: "vendored-plugins/openproject-backlogs"
 
   gem "openproject-themes-dark", path: "vendored-plugins/openproject-themes-dark"
-  gem "openproject-local_avatars", path: "vendored-plugins/openproject-local_avatars"
   gem "openproject-webhooks", path: "vendored-plugins/openproject-webhooks"
   gem "openproject-github_integration", path: "vendored-plugins/openproject-github_integration"
 end
