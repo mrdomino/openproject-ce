@@ -38,7 +38,7 @@ class AdminUserSeeder < Seeder
   end
 
   def applicable?
-    User.admin.empty?
+    User.admin.empty? && !Rails.env.sandstorm?
   end
 
   def not_applicable_message
