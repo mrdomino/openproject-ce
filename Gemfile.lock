@@ -428,6 +428,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     non-stupid-digest-assets (1.0.4)
     oj (2.11.5)
+    omniauth-sandstorm (1.1.0)
+      omniauth (~> 1.0)
     parallel (1.6.1)
     parallel_tests (2.1.2)
       parallel
@@ -724,6 +726,7 @@ DEPENDENCIES
   non-stupid-digest-assets
   oj (~> 2.11.4)
   omniauth!
+  omniauth-sandstorm
   openproject-announcements!
   openproject-backlogs!
   openproject-costs!

@@ -30,4 +30,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   unless Rails.env.production?
     provider :developer, fields: [:first_name, :last_name, :email]
   end
+  if Rails.env.sandstorm?
+    provider :sandstorm
+  end
 end
