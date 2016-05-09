@@ -53,14 +53,19 @@ module DemoData
     end
 
     def data
-      [
-        { name: "Bugs",         filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['7'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to, :create_at] },
-        { name: "Epics",        filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['5'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] },
-        { name: "Milestones",   filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['2'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :subject, :start_date, :due_date] },
-        { name: "Phases",       filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['3'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :subject, :start_date, :due_date] },
-        { name: "Tasks",        filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['1'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] },
-        { name: "User Stories", filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['6'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] }
-      ]
+      # TODO(soon): better sandstorm handling
+      if User.admin.any?
+        [
+          { name: "Bugs",         filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['7'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to, :create_at] },
+          { name: "Epics",        filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['5'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] },
+          { name: "Milestones",   filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['2'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :subject, :start_date, :due_date] },
+          { name: "Phases",       filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['3'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :subject, :start_date, :due_date] },
+          { name: "Tasks",        filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['1'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] },
+          { name: "User Stories", filters: [Queries::WorkPackages::Filter.new(:status_id, operator: "o"), Queries::WorkPackages::Filter.new(:type_id, operator: "=", values: ['6'])], user_id: User.admin.first.id, is_public: true, column_names: [:id, :type, :status, :priority, :subject, :assigned_to] }
+        ]
+      else
+        []
+      end
     end
   end
 end

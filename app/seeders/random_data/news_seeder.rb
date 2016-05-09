@@ -27,6 +27,11 @@
 # See doc/COPYRIGHT.rdoc for more details.
 module RandomData
   class NewsSeeder
+    def applicable?
+      # TODO(soon): Better sandstorm special case
+      User.admin.any?
+    end
+
     def self.seed!(project)
       user = User.admin.first
 

@@ -27,6 +27,11 @@
 # See doc/COPYRIGHT.rdoc for more details.
 module RandomData
   class BoardSeeder
+    def applicable?
+      # TODO(soon): better sandstorm special case
+      User.admin.any?
+    end
+
     def self.seed!(project)
       user = User.admin.first
 

@@ -85,14 +85,17 @@ module DemoData
     end
 
     def set_members(project)
-      role = Role.find_by(name: I18n.t(:default_role_project_admin))
-      user = User.admin.first
+      # TODO(soon): better special case for sandstorm
+      if User.admin.any?
+        role = Role.find_by(name: I18n.t(:default_role_project_admin))
+        user = User.admin.first
 
-      Member.create!(
-        project: project,
-        user:    user,
-        roles:   [role],
-      )
+        Member.create!(
+          project: project,
+          user:    user,
+          roles:   [role],
+        )
+      end
     end
 
     def seed_timeline(project)

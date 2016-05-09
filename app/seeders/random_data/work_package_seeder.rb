@@ -31,11 +31,18 @@ module RandomData
 
     def initialize(project)
       self.project = project
-      self.user = User.admin.first
+      if User.admin.any?
+        # TODO(soon): Better sandstorm special case
+        self.user = User.admin.first
+      end
       self.statuses = Status.all
       self.repository = Repository.first
       self.time_entry_activities = TimeEntryActivity.all
       self.types = project.types.all.reject(&:is_milestone?)
+    end
+
+    def applicable?
+      User.admin.any?
     end
 
     def seed!(random: true)
